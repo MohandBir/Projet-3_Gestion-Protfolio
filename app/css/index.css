@@ -1,0 +1,82 @@
+@import url(general.css);
+@import url(header.css);
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 25px;
+    text-align: center;
+    flex: 1;
+}
+h2 {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+
+.important {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    margin-bottom: 30px;
+
+}
+
+.discription {
+    font-size: 20px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0px;
+}
+
+ul {
+    font-size: 20px;
+    color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Responsive Tablette*/
+@media (min-width : 769px) and (max-width : 1024px) {
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    } 
+
+    .important {
+    font-size: 50px;
+    margin-bottom: 30px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        padding: 35px;
+        text-align: center;
+       
+    }    
+
+}
+
+/* Responsive Desktop*/
+@media (min-width : 1025px) {
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;  
+    }
+    .important{
+        align-self: center;
+        font-size: 60px;
+        max-width: 900px;
+    }
+    
+}
