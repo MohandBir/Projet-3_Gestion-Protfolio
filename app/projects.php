@@ -55,6 +55,9 @@
             </div>    
             <?php } ?>
         </div>
+        <div class="add-project">
+            <button><a href="">Ajouter un nouveau projet</a></button>
+        </div>
     </section>
 
 
