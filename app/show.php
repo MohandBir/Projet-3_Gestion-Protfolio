@@ -20,7 +20,7 @@ if (!empty($_GET['id'])) {
     $date = $project['creation_date'];
     $git = $project['url_git'];
     $auteur = $project['name'];
-    var_dump($project);
+    
 } 
 
 ?>
@@ -38,7 +38,7 @@ if (!empty($_GET['id'])) {
 
 <body>
     <header>
-        <img src="image/profil.jpg" alt="photo de profil" class="photo-profil">
+        <img src="images/profil.jpg" alt="photo de profil" class="photo-profil">
         <div class="name">Camile Ghastine</div>
         <nav>
             <ul class="nav-links">
@@ -57,15 +57,15 @@ if (!empty($_GET['id'])) {
             <div class="project-content">
                 <h2 class="project-title"><?php echo $title ?></h2>                     
                 <p class="project-description">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore illum, at consequatur eveniet ullam voluptatum accusantium similique doloribus facere neque, animi recusandae doloremque aut delectus sint culpa sed placeat ea cum est. Nisi earum perspiciatis doloremque nemo porro quia vitae labore animi ipsa minima a explicabo illum illo cumque iure exercitationem modi ad vel ipsum vero repudiandae, culpa consequatur repellat voluptas? Velit unde deleniti esse! Distinctio officia vel nostrum facilis? Delectus dolore reiciendis reprehenderit repudiandae culpa labore corrupti sint itaque voluptatem quos blanditiis amet fugit deserunt, consequuntur laboriosam veritatis nulla nam? Dolore ut unde nulla nemo sit quisquam, fugiat perspiciatis.
+                   <?php echo $description ?>
                 <div class="project-links">
-                    <a href="#" class="project-link secondary">GitHub</a>                   
+                    <a href="<?php echo $git ?>" class="project-link secondary">GitHub</a>                   
                     <div class="delete"><a href="">❌</a></div>
                     <div class="update"><a href="">✏️</a></div>
                 </div>
                 <div class="infos">
-                    <div>01/02/2026</div>
-                    <div>Camile</div>
+                    <div><?php echo $date ?></div>
+                    <div><?php echo $auteur ?></div>
                 </div>
             </div>
         </div>    
