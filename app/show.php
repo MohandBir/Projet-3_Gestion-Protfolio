@@ -55,17 +55,17 @@ if (!empty($_GET['id'])) {
 
         <div class="project-card">
             <div class="project-content">
-                <h2 class="project-title"><?php echo $title ?></h2>                     
+                <h2 class="project-title"><?php echo htmlspecialchars($title) ?></h2>                     
                 <p class="project-description">
-                   <?php echo $description ?>
+                   <?php echo htmlspecialchars($description) ?>
                 <div class="project-links">
-                    <a href="<?php echo $git ?>" class="project-link secondary">GitHub</a>                   
+                    <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>                   
                     <div class="delete"><a href="">❌</a></div>
                     <div class="update"><a href="">✏️</a></div>
                 </div>
                 <div class="infos">
                     <div><?php echo $date ?></div>
-                    <div><?php echo $auteur ?></div>
+                    <div><?php echo htmlspecialchars(ucfirst($auteur)) ?></div>
                 </div>
             </div>
         </div>    

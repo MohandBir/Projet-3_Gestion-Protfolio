@@ -1,3 +1,10 @@
+<?php 
+session_start();
+
+session_destroy();
+$_SESSION['test']='test';
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,9 +17,12 @@
 </head>
 
 <body>
+    <?php if(isset($_SESSION['message'])) { ?>
+        <p class="success"><?php echo $_SESSION['message']  ?></p>
+    <?php } ?>
     <header>
         <img src="images/profil.jpg" alt="photo de profil" class="photo-profil">
-        <div class="name">Camile Ghastine</div>
+        <div class="name">Mohand BIR</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.php">Accueil</a></li>
@@ -24,7 +34,13 @@
     
     <section class="projects-section">
         <h1 class="section-title">Mes Projets</h2>
+
+        <div class="add-project">
+            <p><a href="add.php">➕</a></p>
+        </div>
+
         <div class="projects-list">
+
 
             <?php
             $pdo = new \PDO(
@@ -39,25 +55,25 @@
             $projects = $request->fetchAll(PDO::FETCH_ASSOC);
             
 
-            foreach ($projects as $project) {
-                //var_dump($project);
-            }
+
             ?>
 
-            <?php  foreach ($projects as $project) {?>
+            <?php  foreach ($projects as $project) { 
+                $discription = $project['description'];
+                ?>
             <div class="project-card">
                 <div class="project-content">
-                    <h2><a href="show.php?id=<?php echo $project['id'] ?>" class="project-title"><?php echo $project['title'] ?></a></h2>
+                    <h2><a href="show.php?id=<?php echo $project['id'] ?>" class="project-title"><?php echo htmlspecialchars($project['title']) ?></a></h2>
                     <p class="project-description">
-                        <?php echo $project['description'] ?>
+                        <?php echo htmlspecialchars(substr($discription,0, 200).'...')  ?>
                     </p>
                 </div>
             </div>    
             <?php } ?>
+
+            
         </div>
-        <div class="add-project">
-            <button><a href="">Ajouter un nouveau projet</a></button>
-        </div>
+        
     </section>
 
 
