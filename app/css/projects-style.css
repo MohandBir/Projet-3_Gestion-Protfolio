@@ -84,6 +84,31 @@ h2 {
     color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+.add-project {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+.add-project>p {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1) ;
+    font-size: 25px;
+    width: 5%;
+}
+.add-project>p>a {
+    
+    font-size: 25px;
+}
+
+.success {
+    position: absolute;
+    left : 20px;
+    color : rgb(0, 255, 42) !important;    
+    font-size: 18px;
+    
+}
 
 
 @media (min-width: 769px) {
