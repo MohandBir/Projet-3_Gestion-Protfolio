@@ -3,7 +3,7 @@ session_start();
 
 session_destroy();
 $_SESSION['test']='test';
-var_dump($_SESSION);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

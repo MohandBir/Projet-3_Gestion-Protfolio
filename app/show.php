@@ -1,5 +1,9 @@
 <?php
-
+// redirection 
+if (array_keys($_GET) !== ['id']){
+    header('location: projects.php');
+    exit;
+}
 
 if (!empty($_GET['id'])) {
     
@@ -15,11 +19,14 @@ if (!empty($_GET['id'])) {
     $request=$pdo->prepare($sql);
     $request->execute([ 'id' => $id ]);
     $project = $request->fetch(PDO::FETCH_ASSOC);
+    $id = $project['id'];
     $title = $project['title'];
     $description = $project['description'];
-    $date = $project['creation_date'];
     $git = $project['url_git'];
     $auteur = $project['name'];
+    // format de date
+    $date = new DateTimeImmutable($project['creation_date']);
+    $date = $date->format('d-m-Y');
     
 } 
 
@@ -61,10 +68,10 @@ if (!empty($_GET['id'])) {
                 <div class="project-links">
                     <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>                   
                     <div class="delete"><a href="">❌</a></div>
-                    <div class="update"><a href="">✏️</a></div>
+                    <div class="update"><a href="update.php?<?php echo "id=$id" ?>">✏️</a></div>
                 </div>
                 <div class="infos">
-                    <div><?php echo $date ?></div>
+                    <div><?php echo ($date) ?></div>
                     <div><?php echo htmlspecialchars(ucfirst($auteur)) ?></div>
                 </div>
             </div>
