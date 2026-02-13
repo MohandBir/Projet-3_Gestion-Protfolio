@@ -1,8 +1,10 @@
 <?php
+
+use DateTimeImmutable;
 // redirection 
-if (array_keys($_GET) !== ['id']){
-    header('location: projects.php');
-    exit;
+if (!isset($_GET['id'])){
+   // header('location: projects.php');
+    //exit;
 }
 
 if (!empty($_GET['id'])) {
@@ -67,7 +69,7 @@ if (!empty($_GET['id'])) {
                    <?php echo htmlspecialchars($description) ?>
                 <div class="project-links">
                     <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>                   
-                    <div class="delete"><a href="">❌</a></div>
+                    <div class="delete"><a href="delete.php?<?php echo "id=$id&title=$title" ?>">❌</a></div>
                     <div class="update"><a href="update.php?<?php echo "id=$id" ?>">✏️</a></div>
                 </div>
                 <div class="infos">
