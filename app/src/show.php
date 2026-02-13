@@ -1,10 +1,12 @@
 <?php
 
 use DateTimeImmutable;
+
+
 // redirection 
 if (!isset($_GET['id'])){
-   // header('location: projects.php');
-    //exit;
+header('location: projects.php');
+exit;
 }
 
 if (!empty($_GET['id'])) {
@@ -29,7 +31,7 @@ if (!empty($_GET['id'])) {
     // format de date
     $date = new DateTimeImmutable($project['creation_date']);
     $date = $date->format('d-m-Y');
-    
+    $parseTitle = str_replace(' ', '_',$title);
 } 
 
 ?>
@@ -40,23 +42,15 @@ if (!empty($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/show-style.css">
+    <link rel="stylesheet" href="../css/show-style.css">
     <title>Portfolio - Projets</title>
 
 </head>
 
 <body>
-    <header>
-        <img src="images/profil.jpg" alt="photo de profil" class="photo-profil">
-        <div class="name">Camile Ghastine</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="projects.php">Projets</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php 
+    require 'shared/_header.php';
+    ?>
     
     <section class="projects-section">
 
@@ -69,7 +63,7 @@ if (!empty($_GET['id'])) {
                    <?php echo htmlspecialchars($description) ?>
                 <div class="project-links">
                     <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>                   
-                    <div class="delete"><a href="delete.php?<?php echo "id=$id&title=$title" ?>">❌</a></div>
+                    <div class="delete"><a href="delete.php?<?php echo "id=$id&title=$parseTitle" ?>">❌</a></div>
                     <div class="update"><a href="update.php?<?php echo "id=$id" ?>">✏️</a></div>
                 </div>
                 <div class="infos">

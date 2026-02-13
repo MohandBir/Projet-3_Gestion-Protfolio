@@ -11,7 +11,7 @@ $_SESSION['test']='test';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/projects-style.css">
+    <link rel="stylesheet" href="/css/projects-style.css">
     <title>Portfolio - Projets</title>
 
 </head>
@@ -20,17 +20,9 @@ $_SESSION['test']='test';
     <?php if(isset($_SESSION['message'])) { ?>
         <p class="success"><?php echo $_SESSION['message']  ?></p>
     <?php } ?>
-    <header>
-        <img src="images/profil.jpg" alt="photo de profil" class="photo-profil">
-        <div class="name">Mohand BIR</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="projects.php">Projets</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php 
+    require 'shared/_header.php';
+?>
     
     <section class="projects-section">
         <h1 class="section-title">Mes Projets</h2>
