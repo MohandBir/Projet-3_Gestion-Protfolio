@@ -1,8 +1,9 @@
 <?php
 session_start();
 
+$name = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 
-use DateTimeImmutable;
+//use DateTimeImmutable;
 
 
 // redirection 
@@ -64,9 +65,19 @@ if (!empty($_GET['id'])) {
                 <p class="project-description">
                    <?php echo htmlspecialchars($description) ?>
                 <div class="project-links">
-                    <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>                   
-                    <div class="delete"><a href="delete.php?<?php echo "id=$id&title=$parseTitle" ?>">❌</a></div>
-                    <div class="update"><a href="update.php?<?php echo "id=$id" ?>">✏️</a></div>
+                    <a href="<?php echo htmlspecialchars($git) ?>" class="project-link secondary">GitHub</a>
+                     
+                    <?php if ($name===$auteur){ ?>                  
+                        <div class="delete">   
+                            <a href="delete.php?<?php echo "id=$id&title=$parseTitle" ?>">❌</a>  
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($name===$auteur){ ?>
+                        <div class="update">
+                            <a href="update.php?<?php echo "id=$id" ?>">✏️</a>                           
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="infos">
                     <div><?php echo ($date) ?></div>

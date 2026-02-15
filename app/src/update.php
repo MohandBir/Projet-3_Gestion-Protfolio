@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$name = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
+
 // redirection 
 if (!isset($_GET['id'])) {
     header('location: projects.php');
@@ -95,11 +97,19 @@ if (!empty($_POST)) {
             <div>
                 <label for="user_id">Utilisateur</label><br>
                 <select name="user_id">
-                    <option value="" >-- Veuillez choisir un utilisateur --</option>
-                    <?php foreach ($users as $user) { ?>
-                    <option value="<?php echo $user['id'] ?>" <?php echo (isset($user_id) && $user_id === $user['id']) ? "selected" :"" ?> >
-                        <?php echo htmlspecialchars($user['name'])?>
-                    </option>
+         
+                    <?php if (empty($_SESSION)) {?>
+                        <option value="" >-- Veuillez choisir un utilisateur --</option>
+                        <?php foreach ($users as $user) { ?>
+                        <option value="<?php echo $user['id'] ?>" <?php echo (isset($user_id) && $user_id === $user['id']) ? "selected" :"" ?> >
+                            <?php echo htmlspecialchars($user['name'])?>
+                        </option>
+                        <?php } ?>
+
+                    <?php } else { ?>
+                        <option value="<?= $_SESSION['id'] ?>" selected >
+                            <?= $name ?>
+                        </option> 
                     <?php } ?>
                 </select>
             </div>

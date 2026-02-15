@@ -29,6 +29,7 @@ if(!empty($_POST)) {
     if ($user && password_verify($pwd, $user['pwd'])) {
         // on enregistre en session $_SESSION['pseudo'] = $pseudo
         $_SESSION['name'] = $name;
+        $_SESSION['id'] = $user['id'];
         header('Location: /index.php');
         exit;
     } else {
