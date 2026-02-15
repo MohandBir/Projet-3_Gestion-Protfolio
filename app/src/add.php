@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-// redirection 
-if (!isset($_GET['id'])) {
-    header('location: projects.php');
-    exit;
-}
 
 // reccupérer la liste des utilisateurs
 $pdo = new \PDO('mysql:host=mysql; dbname=my_portfolio; charset=utf8mb4', 'user', 'pwd');

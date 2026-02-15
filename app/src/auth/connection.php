@@ -9,27 +9,27 @@ if (isset($_GET['register']) && $_GET['register'] === '1') {
 
 // si le formulaire a été soumis --> On stocker les données du formulaire dans des variables PHP
 if(!empty($_POST)) {
-    $pseudo = $_POST['pseudo'];
-    $password = $_POST['pwd'];
+    $name = $_POST['name'];
+    $pwd = $_POST['pwd'];
 
     // On récupère de la BDD le password du pseudo saisi par l'utilisateur
     $pdo = new \PDO(
-        'mysql:host=mysql;dbname=my_first_db;charset=utf8mb4',
+        'mysql:host=mysql;dbname=my_portfolio;charset=utf8mb4',
         'user',
         'pwd'
     );
-    $sql="SELECT * FROM user WHERE pseudo=:pseudo";
+    $sql="SELECT * FROM user WHERE name=:name";
     $request = $pdo->prepare($sql);
     $request->execute([
-        'pseudo' => $pseudo
+        'name' => $name
     ]);
     $user = $request->fetch(PDO::FETCH_ASSOC);
     
     // si les mot de passe concordent [fonnction php password_verify($pwdSaisi, $pwdFromBdd)]
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && password_verify($pwd, $user['pwd'])) {
         // on enregistre en session $_SESSION['pseudo'] = $pseudo
-        $_SESSION['pseudo'] = $pseudo;
-        header('Location: index.php');
+        $_SESSION['name'] = $name;
+        header('Location: /index.php');
         exit;
     } else {
         // Sinon on affiche un message d'erreur
@@ -49,9 +49,10 @@ if(!empty($_POST)) {
 <body>
     <h1>Connexion</h1>
     <form action="" method="post">
-        Pseudo <input type="text" name="pseudo" required> <br>
+        Pseudo <input type="text" name="name" required> <br>
         Mot de passe <input type="password" name="pwd" rquired><br>
-        <input type="submit" value="Connexion"> <?php echo $message ?>
+        <input type="submit" value="Connexion">
+        <?php echo $message ?>
     </form>
     <p><a href="/">Retour à l'accueil</a></p>
 </body>

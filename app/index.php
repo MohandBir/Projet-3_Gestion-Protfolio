@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+//var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,6 +15,8 @@
     <?php 
     require 'src/shared/_header.php';
     ?>
+    
+    
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-subtitle">Développeur Web Junior</h1>

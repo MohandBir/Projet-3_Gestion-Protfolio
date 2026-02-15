@@ -1,8 +1,7 @@
 <?php 
 session_start();
 
-session_destroy();
-$_SESSION['test']='test';
+//session_destroy();
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +18,7 @@ $_SESSION['test']='test';
 <body>
     <?php if(isset($_SESSION['message'])) { ?>
         <p class="success"><?php echo $_SESSION['message']  ?></p>
+        <?php $_SESSION['message'] = '' ?>
     <?php } ?>
 <?php 
     require 'shared/_header.php';

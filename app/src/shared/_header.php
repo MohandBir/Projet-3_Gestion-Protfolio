@@ -1,4 +1,13 @@
-    <header>
+
+   <header>
+        <!-- afficher le nom de utilisateur connecté -->
+        <?php if (isset($_SESSION['name'])){ ?>
+            <div class="connexion">    
+                <span>Connexion : </span><span class="user-name"><?= htmlspecialchars($_SESSION['name']) ?></span><br>
+                <form action="/src/auth/deconnection.php" method="post"><button type="submit">Deconnexion</button></form>
+            </div>
+        <?php } ?>
+
         <img src="../../images/profil.jpg" alt="photo de profil" class="photo-profil">
         <div class="name">Mohand BIR</div>
         <nav>

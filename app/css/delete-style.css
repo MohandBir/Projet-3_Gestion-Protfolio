@@ -84,6 +84,23 @@ a:hover {
     background-color: white;
 }
 
+/* style de div Connexion */
+.connexion {
+    position: absolute;
+    right: 3px;
+    background-color: rgba(255, 255, 255, 0.6);;
+    padding: 7px;
+}
+.user-name {
+    color: rgb(3, 255, 3);
+}
+.connexion button {
+    padding: 3px;
+    color: red;
+    margin-top: 3px;
+}
+
+
 @media (min-width: 769px) and (max-width: 1024px) {
 
  .a-del {

@@ -43,7 +43,7 @@ if(!empty($_POST)) {
 <body>
     <h1>Enregistrement</h1>
     <form action="" method="post">
-        Pseudo <input type="text" name="name" value="<?php echo $pseudo ?>" required><br>
+        Pseudo <input type="text" name="name" value="<?php echo $name ?>" required><br>
         Mot de passe <input type="password" name="pwd" required><br>
         Vérification du mot de passe <input type="password" name="pwdVerif"  required><br>
         <?php echo $error . '<br>'; ?>

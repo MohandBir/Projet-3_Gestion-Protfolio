@@ -45,6 +45,7 @@
     gap: 20px
 }
 
+
 @media (min-width: 769px) {
     .hero-title {
         font-size: 50px;
